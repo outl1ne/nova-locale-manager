@@ -3,10 +3,7 @@
 namespace OptimistDigital\NovaLocaleManager;
 
 use Laravel\Nova\Nova;
-use Laravel\Nova\Events\ServingNova;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use OptimistDigital\NovaLocaleManager\Http\Middleware\Authorize;
 use OptimistDigital\NovaLocaleManager\Nova\Locale;
 
 class ToolServiceProvider extends ServiceProvider
@@ -20,21 +17,16 @@ class ToolServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'NovaLocaleManager');
 
-        $this->publishes([
-            __DIR__ . '/../database/migrations' => database_path('migrations'),
-        ], 'migrations');
-
-        $this->app->booted(function () {
-            $this->routes();
-        });
-
-        Nova::serving(function (ServingNova $event) {
-            //
-        });
-
         Nova::resources([
             Locale::class
         ]);
+
+        // Console only
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../database/migrations' => database_path('migrations'),
+            ], 'migrations');
+        }
     }
 
     /**
@@ -44,13 +36,7 @@ class ToolServiceProvider extends ServiceProvider
      */
     protected function routes()
     {
-        if ($this->app->routesAreCached()) {
-            return;
-        }
-
-        Route::middleware(['nova', Authorize::class])
-            ->prefix('nova-vendor/NovaLocaleManager')
-            ->group(__DIR__ . '/../routes/api.php');
+        //
     }
 
     /**
