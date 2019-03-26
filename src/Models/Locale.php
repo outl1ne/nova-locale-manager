@@ -16,8 +16,8 @@ class Locale extends Model
         parent::boot();
 
         static::deleting(function ($locale) {
-            if (function_exists(NovaLocaleManager::getDeleteCallback())) {
-                NovaLocaleManager::getDeleteCallback()($locale->locale);
+            if (is_callable(NovaLocaleManager::getDeleteCallback())) {
+                NovaLocaleManager::getDeleteCallback()($locale);
             }
         });
     }
