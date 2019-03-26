@@ -10,6 +10,13 @@ use Laravel\Nova\Fields\Text;
 class Locale extends Resource
 {
     /**
+     * The model the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $model = 'OptimistDigital\NovaLocaleManager\Models\Locale';
+
+    /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
