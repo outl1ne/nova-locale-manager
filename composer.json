@@ -3,7 +3,22 @@
   "description": "Laravel Nova tool to manage locales.",
   "keywords": [
     "laravel",
-    "nova"
+    "nova",
+    "locale",
+    "manager",
+    "optimistdigital"
+  ],
+  "authors": [
+    {
+      "name": "Tarvo Reinpalu",
+      "email": "tarvoreinpalu@gmail.com",
+      "role": "Developer"
+    },
+    {
+      "name": "Optimist Digital",
+      "email": "info@optimistdigital.com",
+      "role": "Maintainer"
+    }
   ],
   "license": "MIT",
   "require": {
