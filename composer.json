@@ -1,5 +1,5 @@
 {
-  "name": "OptimistDigital/NovaLocaleManager",
+  "name": "optimistdigital/nova-locale-manager",
   "description": "Laravel Nova tool to manage locales.",
   "keywords": [
     "laravel",
