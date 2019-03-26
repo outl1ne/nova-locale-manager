@@ -41,6 +41,17 @@ public function tools()
 
 ## Usage
 
+### Accessing locales
+
+To simplify accessing the locales, the package registers a helper function `nova_get_locales()` which returns an array where the locale slug is the key and the displayed name is the value.
+
+```php
+[
+    'en_US' => 'English',
+    'et_EE' => 'Estonian',
+]
+```
+
 ### Handling locale deletion
 
 You can get register a callback for when a locale is deleted using the `NovaLocaleManager::deleteCallback()` function. You can register the call back in `NovaServiceProvider`'s `boot()` function.
