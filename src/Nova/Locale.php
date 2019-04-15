@@ -2,10 +2,11 @@
 
 namespace OptimistDigital\NovaLocaleManager\Nova;
 
-use Laravel\Nova\Fields\ID;
-use Illuminate\Http\Request;
 use Laravel\Nova\Resource;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Boolean;
 
 class Locale extends Resource
 {
@@ -21,7 +22,7 @@ class Locale extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -30,6 +31,8 @@ class Locale extends Resource
      */
     public static $search = [
         'id',
+        'name',
+        'locale',
     ];
 
     public static $displayInNavigation = false;
@@ -45,7 +48,8 @@ class Locale extends Resource
         return [
             ID::make('ID'),
             Text::make('Name', 'name'),
-            Text::make('Locale', 'locale')
+            Text::make('Locale', 'locale'),
+            Boolean::make('Default', 'default'),
         ];
     }
 
