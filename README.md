@@ -1,4 +1,4 @@
-# Nova Menu Builder
+# Nova Locale Manager
 
 This [Laravel Nova](https://nova.laravel.com) package allows you to manage simple locales.
 
