@@ -18,17 +18,7 @@ if (!function_exists('nova_get_locales_full')) {
     function nova_get_locales_full(): array
     {
         try {
-            return Locale
-                ::orderBy('default', 'desc')
-                ->get()
-                ->map(function ($locale) {
-                    return [
-                        'name' => $locale->name,
-                        'slug' => $locale->locale,
-                        'default' => $locale->default,
-                    ];
-                })
-                ->toArray();
+            return NovaLocaleManager::getLocalesFull();
         } catch (\Exception $e) {
             return [];
         }
