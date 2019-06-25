@@ -10,7 +10,6 @@ class NovaLocaleManager extends Tool
 {
     protected static $deleteCallback;
     protected static $locales;
-    protected static $localesFull;
 
     /**
      * Perform any tasks that need to happen when the tool is booted.
@@ -43,24 +42,26 @@ class NovaLocaleManager extends Tool
         return self::$deleteCallback;
     }
 
-    public static function getLocales()
+    protected static function _getLocales()
     {
         if (isset(static::$locales)) return static::$locales;
         $locales = Locale
             ::orderBy('default', 'desc')
-            ->get()
-            ->pluck('name', 'locale')
-            ->toArray();
+            ->get();
         static::$locales = $locales;
         return $locales;
     }
 
+    public static function getLocales()
+    {
+        return static::_getLocales()
+            ->pluck('name', 'locale')
+            ->toArray();
+    }
+
     public static function getLocalesFull()
     {
-        if (isset(static::$localesFull)) return static::$localesFull;
-        $localesFull = Locale
-            ::orderBy('default', 'desc')
-            ->get()
+        return static::_getLocales()
             ->map(function ($locale) {
                 return [
                     'name' => $locale->name,
@@ -69,7 +70,5 @@ class NovaLocaleManager extends Tool
                 ];
             })
             ->toArray();
-        static::$localesFull = $localesFull;
-        return $localesFull;
     }
 }
