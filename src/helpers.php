@@ -1,16 +1,13 @@
 <?php
 
 use OptimistDigital\NovaLocaleManager\Models\Locale;
+use OptimistDigital\NovaLocaleManager\NovaLocaleManager;
 
 if (!function_exists('nova_get_locales')) {
     function nova_get_locales(): array
     {
         try {
-            return Locale
-                ::orderBy('default', 'desc')
-                ->get()
-                ->pluck('name', 'locale')
-                ->toArray();
+            return NovaLocaleManager::getLocales();
         } catch (\Exception $e) {
             return [];
         }
