@@ -1,7 +1,7 @@
 <?php
 
-use OptimistDigital\NovaLocaleManager\Models\Locale;
 use OptimistDigital\NovaLocaleManager\NovaLocaleManager;
+use Illuminate\Support\Arr;
 
 if (!function_exists('nova_get_locales')) {
     function nova_get_locales(): array
@@ -22,5 +22,15 @@ if (!function_exists('nova_get_locales_full')) {
         } catch (\Exception $e) {
             return [];
         }
+    }
+}
+
+if (!function_exists('nova_get_default_locale')) {
+    function nova_get_default_locale(): array
+    {
+        $allLocales = nova_get_locales_full();
+        return Arr::first($allLocales, function ($locale) {
+            return $locale['default'];
+        });
     }
 }
