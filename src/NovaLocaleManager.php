@@ -53,4 +53,26 @@ class NovaLocaleManager extends Tool
                 ->toArray();
         });
     }
+
+    public static function getActiveLocales()
+    {
+        return once(function () {
+            $locales = static::getActiveLocalesFull();
+
+            $value = [];
+            foreach ($locales as $locale) {
+                $value[$locale['slug']] = $locale['name'];
+            }
+            return $value;
+        });
+    }
+
+    public static function getActiveLocalesFull()
+    {
+        return once(function () {
+            return array_filter(static::getLocalesFull(), function ($locale) {
+                return $locale['active'];
+            });
+        });
+    }
 }

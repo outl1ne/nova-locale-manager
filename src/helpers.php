@@ -4,10 +4,12 @@ use OptimistDigital\NovaLocaleManager\NovaLocaleManager;
 use Illuminate\Support\Arr;
 
 if (!function_exists('nova_get_locales')) {
-    function nova_get_locales(): array
+    function nova_get_locales($activeOnly = false): array
     {
         try {
-            return NovaLocaleManager::getLocales();
+            return $activeOnly
+                ? NovaLocaleManager::getActiveLocales()
+                : NovaLocaleManager::getLocales();
         } catch (\Exception $e) {
             return [];
         }
@@ -15,31 +17,15 @@ if (!function_exists('nova_get_locales')) {
 }
 
 if (!function_exists('nova_get_locales_full')) {
-    function nova_get_locales_full(): array
+    function nova_get_locales_full($activeOnly = false): array
     {
         try {
-            return NovaLocaleManager::getLocalesFull();
+            return $activeOnly
+                ? NovaLocaleManager::getActiveLocalesFull()
+                : NovaLocaleManager::getLocalesFull();
         } catch (\Exception $e) {
             return [];
         }
-    }
-}
-
-if (!function_exists('nova_get_active_locales')) {
-    function nova_get_active_locales(): array
-    {
-        $allLocales = nova_get_locales_full();
-        return array_filter($allLocales, function ($locale) {
-            return $locale['active'];
-        });
-    }
-}
-
-if (!function_exists('nova_get_default_locale_slug')) {
-    function nova_get_default_locale_slug()
-    {
-        $defaultLocale = nova_get_default_locale();
-        return $defaultLocale['slug'] ?? null;
     }
 }
 
@@ -50,5 +36,13 @@ if (!function_exists('nova_get_default_locale')) {
         return Arr::first($allLocales, function ($locale) {
             return $locale['default'];
         });
+    }
+}
+
+if (!function_exists('nova_get_default_locale_slug')) {
+    function nova_get_default_locale_slug()
+    {
+        $defaultLocale = nova_get_default_locale();
+        return $defaultLocale['slug'] ?? null;
     }
 }
