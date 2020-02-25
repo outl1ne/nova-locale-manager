@@ -8,11 +8,6 @@ use OptimistDigital\NovaLocaleManager\Nova\Locale;
 
 class ToolServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'NovaLocaleManager');
@@ -27,25 +22,5 @@ class ToolServiceProvider extends ServiceProvider
                 __DIR__ . '/../database/migrations' => database_path('migrations'),
             ], 'migrations');
         }
-    }
-
-    /**
-     * Register the tool's routes.
-     *
-     * @return void
-     */
-    protected function routes()
-    {
-        //
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
     }
 }

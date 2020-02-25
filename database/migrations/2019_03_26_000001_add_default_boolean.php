@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class AddDefaultBoolean extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('nova_locale_manager', function (Blueprint $table) {
@@ -18,11 +13,6 @@ class AddDefaultBoolean extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('nova_locale_manager', function (Blueprint $table) {

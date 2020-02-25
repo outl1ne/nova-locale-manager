@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateLocaleManagerTables extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('nova_locale_manager', function (Blueprint $table) {
@@ -21,11 +16,6 @@ class CreateLocaleManagerTables extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('nova_locale_manager');
