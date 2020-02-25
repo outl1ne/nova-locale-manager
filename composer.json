@@ -22,7 +22,10 @@
   ],
   "license": "MIT",
   "require": {
-    "php": ">=7.1.0"
+    "php": ">=7.1.0",
+    "spatie/once": "^2.2",
+    "laravel/nova": "^2.0.11",
+    "doctrine/dbal": "^2.9"
   },
   "autoload": {
     "psr-4": {

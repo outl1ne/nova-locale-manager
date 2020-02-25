@@ -2,7 +2,6 @@
 
 namespace OptimistDigital\NovaLocaleManager;
 
-use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;
 use OptimistDigital\NovaLocaleManager\Models\Locale;
 
@@ -26,33 +25,23 @@ class NovaLocaleManager extends Tool
         return self::$deleteCallback;
     }
 
-    protected static function _getLocales()
-    {
-        if (isset(static::$locales)) return static::$locales;
-        $locales = Locale
-            ::orderBy('default', 'desc')
-            ->get();
-        static::$locales = $locales;
-        return $locales;
-    }
-
     public static function getLocales()
     {
-        return static::_getLocales()
-            ->pluck('name', 'locale')
-            ->toArray();
+        return once(function () {
+            return Locale::orderBy('default', 'desc')
+                ->pluck('name', 'locale')
+                ->toArray();
+        });
     }
 
     public static function getLocalesFull()
     {
-        return static::_getLocales()
-            ->map(function ($locale) {
-                return [
-                    'name' => $locale->name,
-                    'slug' => $locale->locale,
-                    'default' => $locale->default,
-                ];
-            })
-            ->toArray();
+        return array_map(function ($locale) {
+            return [
+                'name' => $locale->name,
+                'slug' => $locale->slug,
+                'default' => $locale->default,
+            ];
+        }, static::getLocales());
     }
 }

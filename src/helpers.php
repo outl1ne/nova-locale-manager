@@ -25,6 +25,14 @@ if (!function_exists('nova_get_locales_full')) {
     }
 }
 
+if (!function_exists('nova_get_default_locale_slug')) {
+    function nova_get_default_locale_slug(): array
+    {
+        $defaultLocale = nova_get_default_locale();
+        return $defaultLocale['slug'] ?? null;
+    }
+}
+
 if (!function_exists('nova_get_default_locale')) {
     function nova_get_default_locale(): array
     {
