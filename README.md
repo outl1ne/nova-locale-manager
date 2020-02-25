@@ -6,10 +6,6 @@ This [Laravel Nova](https://nova.laravel.com) package allows you to manage simpl
 
 - Locale management (name and slug)
 
-## Screenshots
-
-TODO
-
 ## Installation
 
 Install the package in a Laravel Nova project via Composer:
@@ -41,32 +37,61 @@ public function tools()
 
 ## Usage
 
-### Accessing locales
+### nova_get_locales(\$activeOnly = false)
 
-To simplify accessing the locales, the package registers a helper function `nova_get_locales()` which returns an array where the locale slug is the key and the displayed name is the value.
+Parameter `$activeOnly` decides wether to return only `active` locales or all.
+
+Returns the locales as a `slug => name` map.
 
 ```php
 [
-    'en_US' => 'English',
-    'et_EE' => 'Estonian',
+    'en' => 'English',
+    'et' => 'Estonian',
 ]
 ```
 
-To get access to more detailed data, use the `nova_get_locales_full()` helper function, which returns the following format:
+### nova_get_locales_full(\$activeOnly = false)
+
+Parameter `$activeOnly` decides wether to return only `active` locales or all.
+
+Returns the locales and all their data.
 
 ```php
 [
     [
         'name' => 'English',
-        'slug' => 'en_US',
+        'slug' => 'en',
+        'active' => false,
         'default' => false,
     ],
     [
         'name' => 'Estonian',
-        'slug' => 'et_EE',
+        'slug' => 'et',
+        'active' => true,
         'default' => true,
     ],
 ]
+```
+
+### nova_get_default_locale()
+
+Returns the default locale's full data.
+
+```php
+[
+    'name' => 'English',
+    'slug' => 'en',
+    'active' => false,
+    'default' => false,
+],
+```
+
+### nova_get_default_locale_slug()
+
+Returns the default locale's slug.
+
+```php
+'en'
 ```
 
 ### Handling locale deletion
