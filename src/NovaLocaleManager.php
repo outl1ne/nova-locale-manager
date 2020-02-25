@@ -28,20 +28,29 @@ class NovaLocaleManager extends Tool
     public static function getLocales()
     {
         return once(function () {
-            return Locale::orderBy('default', 'desc')
-                ->pluck('name', 'locale')
-                ->toArray();
+            $locales = static::getLocalesFull();
+            $value = [];
+            foreach ($locales as $locale) {
+                $value[$locale['slug']] = $locale['name'];
+            }
+            return $value;
         });
     }
 
     public static function getLocalesFull()
     {
-        return array_map(function ($locale) {
-            return [
-                'name' => $locale->name,
-                'slug' => $locale->slug,
-                'default' => $locale->default,
-            ];
-        }, static::getLocales());
+        return once(function () {
+            return Locale::orderBy('default', 'desc')
+                ->get()
+                ->map(function ($locale) {
+                    return [
+                        'name' => $locale->name,
+                        'active' => $locale->active,
+                        'slug' => $locale->slug,
+                        'default' => $locale->default,
+                    ];
+                })
+                ->toArray();
+        });
     }
 }
