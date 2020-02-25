@@ -17,14 +17,4 @@ class MakeLocaleDefault extends Action
         $newDefault->default = true;
         $newDefault->save();
     }
-
-    /**
-     * Get the fields available on the action.
-     *
-     * @return array
-     */
-    public function fields()
-    {
-        return [];
-    }
 }

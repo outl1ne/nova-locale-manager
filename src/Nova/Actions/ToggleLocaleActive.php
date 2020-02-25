@@ -18,14 +18,4 @@ class ToggleLocaleActive extends Action
             $locale->save();
         }
     }
-
-    /**
-     * Get the fields available on the action.
-     *
-     * @return array
-     */
-    public function fields()
-    {
-        return [];
-    }
 }
