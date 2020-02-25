@@ -10,8 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added `active` boolean to locales (NB! Requires `php artisan migrate`)
-- Added new helper function `nova_get_active_locales()`
-- Added new helper function `nova_get_default_locale_slug()`
+- Added `nova_get_default_locale_slug()` helper function
 
 ### Changed
 
@@ -25,6 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Reworked index view's UI and layout
 - Caching now uses `spatie/once` instead of static properties
 - Renamed `locale` column to `slug` (NB! Requires `php artisan migrate`)
+- Added `$activeOnly` option to `nova_get_locales($activeOnly = false)`
+- Added `$activeOnly` option to `nova_get_locales_full($activeOnly = false)`
 - Refactored a lot of code
 
 ## [1.0.0] - 2019-03-26
