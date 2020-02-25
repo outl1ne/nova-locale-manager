@@ -13,7 +13,7 @@ class NovaLocaleManager extends Tool
 
     public function renderNavigation()
     {
-        return view('NovaLocaleManager::navigation');
+        return view('nova-locale-manager::navigation');
     }
 
     public static function deleteCallback($deleteCallback)

@@ -8,8 +8,12 @@ use OptimistDigital\NovaLocaleManager\NovaLocaleManager;
 class Locale extends Model
 {
     protected $table = 'nova_locale_manager';
-    protected $fillable = ['name', 'locale', 'default'];
-    protected $casts = ['default' => 'boolean'];
+    protected $fillable = ['name', 'slug', 'active', 'default'];
+
+    protected $casts = [
+        'default' => 'boolean',
+        'active' => 'boolean',
+    ];
 
     protected static function boot()
     {
