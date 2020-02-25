@@ -10,16 +10,10 @@ class ToolServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'nova-locale-manager');
 
         // Register resource
         Nova::resources([Locale::class]);
-
-        // Console only
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__ . '/../database/migrations' => database_path('migrations'),
-            ], 'migrations');
-        }
     }
 }
