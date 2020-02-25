@@ -36,7 +36,7 @@ if (!function_exists('nova_get_active_locales')) {
 }
 
 if (!function_exists('nova_get_default_locale_slug')) {
-    function nova_get_default_locale_slug(): array
+    function nova_get_default_locale_slug()
     {
         $defaultLocale = nova_get_default_locale();
         return $defaultLocale['slug'] ?? null;
