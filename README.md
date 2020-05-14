@@ -14,10 +14,9 @@ Install the package in a Laravel Nova project via Composer:
 composer require optimistdigital/nova-locale-manager
 ```
 
-Publish the database migration(s) and run migrate:
+Run the database migration(s):
 
 ```bash
-php artisan vendor:publish --provider="OptimistDigital\NovaLocaleManager\ToolServiceProvider" --tag="migrations"
 php artisan migrate
 ```
 
