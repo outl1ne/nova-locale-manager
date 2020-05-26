@@ -50,6 +50,7 @@ class NovaLocaleManager extends Tool
                         'default' => $locale->default,
                     ];
                 })
+                ->values()
                 ->toArray();
         });
     }
@@ -70,9 +71,9 @@ class NovaLocaleManager extends Tool
     public static function getActiveLocalesFull()
     {
         return once(function () {
-            return array_filter(static::getLocalesFull(), function ($locale) {
+            return array_values(array_filter(static::getLocalesFull(), function ($locale) {
                 return $locale['active'];
-            });
+            }));
         });
     }
 }
