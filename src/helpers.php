@@ -1,10 +1,10 @@
 <?php
 
-use OptimistDigital\NovaLocaleManager\NovaLocaleManager;
 use Illuminate\Support\Arr;
+use OptimistDigital\NovaLocaleManager\NovaLocaleManager;
 
 if (!function_exists('nova_get_locales')) {
-    function nova_get_locales($activeOnly = false): array
+    function nova_get_locales($activeOnly = false): ?array
     {
         try {
             return $activeOnly
@@ -17,7 +17,7 @@ if (!function_exists('nova_get_locales')) {
 }
 
 if (!function_exists('nova_get_locales_full')) {
-    function nova_get_locales_full($activeOnly = false): array
+    function nova_get_locales_full($activeOnly = false): ?array
     {
         try {
             return $activeOnly
@@ -30,7 +30,7 @@ if (!function_exists('nova_get_locales_full')) {
 }
 
 if (!function_exists('nova_get_default_locale')) {
-    function nova_get_default_locale(): array
+    function nova_get_default_locale(): ?array
     {
         $allLocales = nova_get_locales_full();
         return Arr::first($allLocales, function ($locale) {
@@ -40,7 +40,7 @@ if (!function_exists('nova_get_default_locale')) {
 }
 
 if (!function_exists('nova_get_default_locale_slug')) {
-    function nova_get_default_locale_slug()
+    function nova_get_default_locale_slug(): ?string
     {
         $defaultLocale = nova_get_default_locale();
         return $defaultLocale['slug'] ?? null;
