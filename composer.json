@@ -23,7 +23,7 @@
   "license": "MIT",
   "require": {
     "php": ">=7.1.0",
-    "spatie/once": "^2.2",
+    "spatie/once": "^3.0",
     "laravel/nova": "^2.0.11 || ^3.0",
     "doctrine/dbal": "^2.9"
   },
