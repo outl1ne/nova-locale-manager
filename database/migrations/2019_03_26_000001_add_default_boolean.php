@@ -8,14 +8,14 @@ class AddDefaultBoolean extends Migration
 {
     public function up()
     {
-        Schema::table('nova_locale_manager', function (Blueprint $table) {
+        Schema::table(config('nova-locale-manager.table'), function (Blueprint $table) {
             $table->boolean('default')->default(false);
         });
     }
 
     public function down()
     {
-        Schema::table('nova_locale_manager', function (Blueprint $table) {
+        Schema::table(config('nova-locale-manager.table'), function (Blueprint $table) {
             $table->dropColumn('default');
         });
     }

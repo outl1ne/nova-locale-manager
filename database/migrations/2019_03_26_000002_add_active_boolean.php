@@ -8,7 +8,7 @@ class AddActiveBoolean extends Migration
 {
     public function up()
     {
-        Schema::table('nova_locale_manager', function (Blueprint $table) {
+        Schema::table(config('nova-locale-manager.table'), function (Blueprint $table) {
             $table->boolean('active')->default(true);
             $table->renameColumn('locale', 'slug');
         });
@@ -16,7 +16,7 @@ class AddActiveBoolean extends Migration
 
     public function down()
     {
-        Schema::table('nova_locale_manager', function (Blueprint $table) {
+        Schema::table(config('nova-locale-manager.table'), function (Blueprint $table) {
             $table->dropColumn('active');
             $table->renameColumn('slug', 'locale');
         });

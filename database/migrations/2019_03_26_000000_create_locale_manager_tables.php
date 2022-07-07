@@ -8,7 +8,7 @@ class CreateLocaleManagerTables extends Migration
 {
     public function up()
     {
-        Schema::create('nova_locale_manager', function (Blueprint $table) {
+        Schema::create(config('nova-locale-manager.table'), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('name');
@@ -18,6 +18,6 @@ class CreateLocaleManagerTables extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('nova_locale_manager');
+        Schema::dropIfExists(config('nova-locale-manager.table'));
     }
 }

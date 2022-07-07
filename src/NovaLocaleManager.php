@@ -2,18 +2,12 @@
 
 namespace OptimistDigital\NovaLocaleManager;
 
-use Laravel\Nova\Tool;
 use OptimistDigital\NovaLocaleManager\Models\Locale;
 
-class NovaLocaleManager extends Tool
+class NovaLocaleManager
 {
     protected static $deleteCallback;
     protected static $locales;
-
-    public function renderNavigation()
-    {
-        return view('nova-locale-manager::navigation');
-    }
 
     public static function deleteCallback($deleteCallback)
     {

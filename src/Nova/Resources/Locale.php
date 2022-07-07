@@ -3,9 +3,9 @@
 namespace OptimistDigital\NovaLocaleManager\Nova\Resources;
 
 use Laravel\Nova\Resource;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use OptimistDigital\NovaLocaleManager\Models\Locale as LocaleModel;
 use OptimistDigital\NovaLocaleManager\Nova\Actions\MakeLocaleDefault;
 use OptimistDigital\NovaLocaleManager\Nova\Actions\ToggleLocaleActive;
@@ -15,9 +15,8 @@ class Locale extends Resource
     public static $model = LocaleModel::class;
     public static $title = 'name';
     public static $search = ['name', 'slug'];
-    public static $displayInNavigation = false;
 
-    public function fields(Request $request)
+    public function fields(NovaRequest $request)
     {
         return [
             Text::make('Locale', function ($model) {
@@ -40,7 +39,7 @@ class Locale extends Resource
         ];
     }
 
-    public function actions(Request $request)
+    public function actions(NovaRequest $request)
     {
         return [
             new MakeLocaleDefault,
