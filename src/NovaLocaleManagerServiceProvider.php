@@ -1,12 +1,12 @@
 <?php
 
-namespace OptimistDigital\NovaLocaleManager;
+namespace Outl1ne\NovaLocaleManager;
 
 use Laravel\Nova\Nova;
 use Illuminate\Support\ServiceProvider;
-use OptimistDigital\NovaLocaleManager\Nova\Resources\Locale;
+use Outl1ne\NovaLocaleManager\Nova\Resources\Locale;
 
-class ToolServiceProvider extends ServiceProvider
+class NovaLocaleManagerServiceProvider extends ServiceProvider
 {
     public function boot()
     {

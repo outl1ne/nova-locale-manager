@@ -5,6 +5,41 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 22-07-07
+
+### Added
+
+- Support for Laravel Nova 4
+- Created a configuration file
+
+### Removed
+
+- Locales now act as a resource (previously a tool)
+  - For menu customization refer to [Nova Docs](https://nova.laravel.com/docs/4.0/customization/menus.html#customizing-the-main-menu)
+
+### Changed
+
+- Requirements
+
+  - php: `>= 8.0`
+  - laravel/framework: `>= 9.0`
+  - laravel/nova: `^4.0`
+
+- Changed the service provider name from `ToolServiceProvider` to `NovaLocaleManagerServiceProvider`
+
+**Due to our organization changing it's name, we are changing the namespace starting this release.**
+
+- composer.json:
+  - `"optimist-digital/nova-locale-manager"` =>`"outl1ne/nova-locale-manager"`
+- imports:
+  - `OptimistDigital\NovaLocaleManager` => `Outl1ne\NovaLocaleManager`
+
+## [2.0.4] - 07-02-2022
+
+### Changed
+
+- Allow spatie/once 3.0
+
 ## [2.0.4] - 07-02-2022
 
 ### Changed

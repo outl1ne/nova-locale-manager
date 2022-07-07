@@ -1,9 +1,9 @@
 <?php
 
-namespace OptimistDigital\NovaLocaleManager\Models;
+namespace Outl1ne\NovaLocaleManager\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use OptimistDigital\NovaLocaleManager\NovaLocaleManager;
+use Outl1ne\NovaLocaleManager\NovaLocaleManager;
 
 class Locale extends Model
 {

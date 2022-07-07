@@ -1,8 +1,8 @@
 <?php
 
-namespace OptimistDigital\NovaLocaleManager;
+namespace Outl1ne\NovaLocaleManager;
 
-use OptimistDigital\NovaLocaleManager\Models\Locale;
+use Outl1ne\NovaLocaleManager\Models\Locale;
 
 class NovaLocaleManager
 {

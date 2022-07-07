@@ -3,7 +3,7 @@
 return [
 
     /**
-     * Set a name for the settings table
+     * Set a name for the table
      */
     'table' => 'nova_locale_manager',
 ];

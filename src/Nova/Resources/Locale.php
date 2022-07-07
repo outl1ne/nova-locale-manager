@@ -1,14 +1,14 @@
 <?php
 
-namespace OptimistDigital\NovaLocaleManager\Nova\Resources;
+namespace Outl1ne\NovaLocaleManager\Nova\Resources;
 
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use OptimistDigital\NovaLocaleManager\Models\Locale as LocaleModel;
-use OptimistDigital\NovaLocaleManager\Nova\Actions\MakeLocaleDefault;
-use OptimistDigital\NovaLocaleManager\Nova\Actions\ToggleLocaleActive;
+use Outl1ne\NovaLocaleManager\Models\Locale as LocaleModel;
+use Outl1ne\NovaLocaleManager\Nova\Actions\MakeLocaleDefault;
+use Outl1ne\NovaLocaleManager\Nova\Actions\ToggleLocaleActive;
 
 class Locale extends Resource
 {

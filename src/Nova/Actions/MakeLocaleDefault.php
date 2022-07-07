@@ -1,6 +1,6 @@
 <?php
 
-namespace OptimistDigital\NovaLocaleManager\Nova\Actions;
+namespace Outl1ne\NovaLocaleManager\Nova\Actions;
 
 use Laravel\Nova\Actions\Action;
 use Illuminate\Support\Collection;

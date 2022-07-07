@@ -16,7 +16,7 @@
 		},
 		{
 			"name": "Optimist Digital",
-			"email": "info@optimistdigital.com",
+			"email": "info@outl1ne.com",
 			"role": "Maintainer"
 		}
 	],
@@ -30,7 +30,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"OptimistDigital\\NovaLocaleManager\\": "src/"
+			"Outl1ne\\NovaLocaleManager\\": "src/"
 		},
 		"files": [
 			"src/helpers.php"
@@ -39,7 +39,7 @@
 	"extra": {
 		"laravel": {
 			"providers": [
-				"OptimistDigital\\NovaLocaleManager\\ToolServiceProvider"
+				"Outl1ne\\NovaLocaleManager\\NovaLocaleManagerServiceProvider"
 			]
 		}
 	},

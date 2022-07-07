@@ -1,37 +1,30 @@
 # Nova Locale Manager
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/outl1ne/nova-locale-manager.svg?style=flat-square)](https://packagist.org/packages/outl1ne/nova-locale-manager)
+[![Total Downloads](https://img.shields.io/packagist/dt/outl1ne/nova-locale-manager.svg?style=flat-square)](https://packagist.org/packages/outl1ne/nova-locale-manager)
+
 This [Laravel Nova](https://nova.laravel.com) package allows you to manage simple locales.
 
 ## Features
 
-- Locale management (name and slug)
+- Locale creation (name and slug)
+- Locale state management (active, default)
+
+## Requirements
+
+- `php: >=8.0`
+- `laravel/nova: ^4.0`
 
 ## Installation
 
 Install the package in a Laravel Nova project via Composer:
 
 ```bash
-composer require optimistdigital/nova-locale-manager
-```
+# Install nova-locale-manager
+composer require outl1ne/nova-locale-manager
 
-Run the database migration(s):
-
-```bash
+# Run migrations
 php artisan migrate
-```
-
-Register the tool with Nova in the `tools()` method of the `NovaServiceProvider`:
-
-```php
-// in app/Providers/NovaServiceProvider.php
-
-public function tools()
-{
-    return [
-        // ...
-        new \OptimistDigital\NovaLocaleManager\NovaLocaleManager
-    ];
-}
 ```
 
 ## Usage
@@ -104,13 +97,21 @@ Example:
 
 public function boot()
 {
-    \OptimistDigital\NovaLocaleManager\NovaLocaleManager::deleteCallback(function ($locale) {
+    \Outl1ne\NovaLocaleManager\NovaLocaleManager::deleteCallback(function ($locale) {
         // $locale is the Locale model
         // Locale ID: $locale->id
         // Locale slug: $locale->locale
         // Locale name: $locale->name
     });
 }
+```
+
+## Configuration
+
+The config file can be published using the following command:
+
+```bash
+php artisan vendor:publish --provider="Outl1ne\NovaLocaleManager\NovaLocaleManagerServiceProvider" --tag="config"
 ```
 
 ## Credits

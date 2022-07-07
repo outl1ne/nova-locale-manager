@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Arr;
-use OptimistDigital\NovaLocaleManager\NovaLocaleManager;
+use Outl1ne\NovaLocaleManager\NovaLocaleManager;
 
 if (!function_exists('nova_get_locales')) {
     function nova_get_locales($activeOnly = false): ?array
