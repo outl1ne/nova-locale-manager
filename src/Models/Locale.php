@@ -1,19 +1,24 @@
 <?php
 
-namespace OptimistDigital\NovaLocaleManager\Models;
+namespace Outl1ne\NovaLocaleManager\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use OptimistDigital\NovaLocaleManager\NovaLocaleManager;
+use Outl1ne\NovaLocaleManager\NovaLocaleManager;
 
 class Locale extends Model
 {
-    protected $table = 'nova_locale_manager';
     protected $fillable = ['name', 'slug', 'active', 'default'];
 
     protected $casts = [
         'default' => 'boolean',
         'active' => 'boolean',
     ];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->setTable(config('nova-locale-manager.table'));
+    }
 
     protected static function boot()
     {
