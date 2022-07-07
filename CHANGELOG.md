@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - laravel/nova: `^4.0`
 
 - Changed the service provider name from `ToolServiceProvider` to `NovaLocaleManagerServiceProvider`
+  - Might require you to run `composer dump-autoload`
 
 **Due to our organization changing it's name, we are changing the namespace starting this release.**
 
