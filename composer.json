@@ -1,51 +1,51 @@
 {
-	"name": "outl1ne/nova-locale-manager",
-	"description": "Laravel Nova tool to manage locales.",
-	"keywords": [
-		"laravel",
-		"nova",
-		"locale",
-		"manager",
-		"outl1ne"
-	],
-	"authors": [
-		{
-			"name": "Tarvo Reinpalu",
-			"email": "tarvoreinpalu@gmail.com",
-			"role": "Developer"
-		},
-		{
-			"name": "Optimist Digital",
-			"email": "info@outl1ne.com",
-			"role": "Maintainer"
-		}
-	],
-	"license": "MIT",
-	"require": {
-		"php": ">=8.0.0",
-		"laravel/framework": "^9.0",
-		"laravel/nova": "~4.0",
-		"spatie/once": "^3.0",
-		"doctrine/dbal": "^2.13.3|^3.1.2"
-	},
-	"autoload": {
-		"psr-4": {
-			"Outl1ne\\NovaLocaleManager\\": "src/"
-		},
-		"files": [
-			"src/helpers.php"
-		]
-	},
-	"extra": {
-		"laravel": {
-			"providers": [
-				"Outl1ne\\NovaLocaleManager\\NovaLocaleManagerServiceProvider"
-			]
-		}
-	},
-	"config": {
-		"sort-packages": true
-	},
-	"minimum-stability": "dev",
-	"prefer-stable": true
+  "name": "outl1ne/nova-locale-manager",
+  "description": "Laravel Nova tool to manage locales.",
+  "keywords": [
+    "laravel",
+    "nova",
+    "locale",
+    "manager",
+    "outl1ne"
+  ],
+  "authors": [
+    {
+      "name": "Tarvo Reinpalu",
+      "email": "tarvoreinpalu@gmail.com",
+      "role": "Developer"
+    },
+    {
+      "name": "Optimist Digital",
+      "email": "info@outl1ne.com",
+      "role": "Maintainer"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=8.0.0",
+    "laravel/framework": "^9.0",
+    "laravel/nova": "~4.0",
+    "spatie/once": "^3.0",
+    "doctrine/dbal": "^2.13.3|^3.1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Outl1ne\\NovaLocaleManager\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Outl1ne\\NovaLocaleManager\\NovaLocaleManagerServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
